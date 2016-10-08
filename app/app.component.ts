@@ -2,21 +2,10 @@
  * Created by ghj on 16-10-6.
  */
 import {Component} from '@angular/core';
+import {OnInit} from '@angular/core'
 
-import {Hero} from './hero'
-
-const Heroes : Hero[] = [
-    {id:11,name:'Hero1'},
-    {id:12,name:'Hero2'},
-    {id:13,name:'Hero3'},
-    {id:14,name:'Hero4'},
-    {id:15,name:'Hero5'},
-    {id:16,name:'Hero6'},
-    {id:17,name:'Hero7'},
-    {id:18,name:'Hero8'},
-    {id:19,name:'Hero9'}
-]
-
+import {Hero} from './hero';
+import {HeroService} from './hero.service';
 
 @Component({
     selector:'my-app',
@@ -80,17 +69,30 @@ const Heroes : Hero[] = [
         margin-right: .8em;
         border-radius: 4px 0 0 4px;
       }
-    `]
+    `],
+    providers:[HeroService]
 })
 
 
-export class AppComponment{
+export class AppComponment implements OnInit{
+
     title = 'Tour of Heroes';
-    heroes = Heroes;
+    heroes :Hero[];
     selectedHero:Hero;
+
+    constructor(private heroService:HeroService){}
+
+    //OnInit
+    ngOnInit():void{
+        this.getHeroes();
+    }
 
     onSelect(hero:Hero):void{
         this.selectedHero = hero;
+    }
+
+    getHeroes():void{
+        this.heroService.getHero().then(heroes=> this.heroes = heroes);
     }
 }
 

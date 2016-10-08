@@ -11,15 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by ghj on 16-10-8.
  */
-var core_1 = require('angular/core');
-var HeroSerice = (function () {
-    function HeroSerice() {
+var core_1 = require('@angular/core');
+var mock_heroes_1 = require('./mock-heroes');
+var HeroService = (function () {
+    function HeroService() {
     }
-    HeroSerice = __decorate([
+    HeroService.prototype.getHero = function () {
+        return Promise.resolve(mock_heroes_1.HEROES);
+    };
+    HeroService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], HeroSerice);
-    return HeroSerice;
+    ], HeroService);
+    return HeroService;
 }());
-exports.HeroSerice = HeroSerice;
+exports.HeroService = HeroService;
 //# sourceMappingURL=hero.service.js.map
