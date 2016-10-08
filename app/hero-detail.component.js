@@ -12,9 +12,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by ghj on 16-10-8.
  */
 var core_1 = require('@angular/core');
+var hero_1 = require('./hero');
 var HeroDetailComponent = (function () {
     function HeroDetailComponent() {
     }
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', hero_1.Hero)
+    ], HeroDetailComponent.prototype, "hero", void 0);
     HeroDetailComponent = __decorate([
         core_1.Component({
             selector: 'my-hero-detail',
