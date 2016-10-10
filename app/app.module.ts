@@ -23,8 +23,8 @@ import {InMemoryDataService} from './in-memory-data.service';
         BrowserModule,
         FormsModule,
         HttpModule,
-        routing,
         InMemoryWebApiModule.forRoot(InMemoryDataService),
+        routing
     ],
     declarations:[
         AppComponent,
