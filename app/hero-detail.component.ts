@@ -1,29 +1,29 @@
 /**
  * Created by ghj on 16-10-8.
  */
-import {Component , Input} from '@angular/core'
-import {ActivatedRoute,Params} from '@angular/router';
-import {Location} from '@angular/common';
-import {OnInit} from '@angular/core';
+import { Component, OnInit }      from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location }               from '@angular/common';
 
-import {Hero} from './hero';
-import {HeroService} from './hero.service';
+import { Hero }        from './hero';
+import { HeroService } from './hero.service';
 
 @Component({
-    moduleId:module.id,
-    selector:'my-hero-detail',
-    templateUrl:'hero-detail.component.html',
-    styleUrls:['hero-detail.component.css']
+    moduleId: module.id,
+    selector: 'my-hero-detail',
+    templateUrl: 'hero-detail.component.html',
+    styleUrls: [ 'hero-detail.component.css' ]
 })
 
-export class HeroDetailComponent implements OnInit{
-    constructor(
-        private heroService:HeroService,
-        private route:ActivatedRoute,
-        private location:Location
-    ){}
+export class HeroDetailComponent implements OnInit {
 
-    hero:Hero;
+    hero: Hero;
+
+    constructor(
+        private heroService: HeroService,
+        private route: ActivatedRoute,
+        private location: Location
+    ) {}
 
     ngOnInit(): void {
         this.route.params.forEach((params: Params) => {
@@ -33,12 +33,14 @@ export class HeroDetailComponent implements OnInit{
         });
     }
 
-    save():void{
+    save(): void {
         this.heroService.update(this.hero)
-            .then(()=> this.goBack());
+            .then(() => this.goBack());
     }
 
-    goBack():void{
+    goBack(): void {
         this.location.back();
     }
+
 }
+

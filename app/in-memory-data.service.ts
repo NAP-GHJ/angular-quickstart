@@ -2,19 +2,21 @@
  * Created by ghj on 16-10-10.
  */
 
-import {InMemoryDbService} from 'angular-in-memory-web-api';
+import { InMemoryDbService } from 'angular-in-memory-web-api';
 
-export class InMemoryDataService implements InMemoryDbService{
-    createDb(){
+export class InMemoryDataService implements InMemoryDbService {
+    createDb() {
         let heroes = [
-            {id:1,name:'Hero1'},
-            {id:2,name:'Hero2'},
-            {id:3,name:'Hero3'},
-            {id:4,name:'Hero4'},
-            {id:5,name:'Hero5'},
-            {id:6,name:'Hero6'},
-            {id:7,name:'Hero7'},
-            {id:8,name:'Hero8'}
+            {id: 11, name: 'Mr. Nice'},
+            {id: 12, name: 'Narco'},
+            {id: 13, name: 'Bombasto'},
+            {id: 14, name: 'Celeritas'},
+            {id: 15, name: 'Magneta'},
+            {id: 16, name: 'RubberMan'},
+            {id: 17, name: 'Dynama'},
+            {id: 18, name: 'Dr IQ'},
+            {id: 19, name: 'Magma'},
+            {id: 20, name: 'Tornado'}
         ];
         return {heroes};
     }

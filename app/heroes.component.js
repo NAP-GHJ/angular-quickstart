@@ -18,21 +18,12 @@ var HeroesComponent = (function () {
     function HeroesComponent(heroService, router) {
         this.heroService = heroService;
         this.router = router;
-        this.title = 'Tour of Heroes';
     }
-    //OnInit
-    HeroesComponent.prototype.ngOnInit = function () {
-        this.getHeroes();
-    };
-    HeroesComponent.prototype.onSelect = function (hero) {
-        this.selectedHero = hero;
-    };
     HeroesComponent.prototype.getHeroes = function () {
         var _this = this;
-        this.heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes; });
-    };
-    HeroesComponent.prototype.gotoDetail = function () {
-        this.router.navigate(['/detail', this.selectedHero.id]);
+        this.heroService
+            .getHeroes()
+            .then(function (heroes) { return _this.heroes = heroes; });
     };
     HeroesComponent.prototype.add = function (name) {
         var _this = this;
@@ -56,6 +47,15 @@ var HeroesComponent = (function () {
                 _this.selectedHero = null;
             }
         });
+    };
+    HeroesComponent.prototype.ngOnInit = function () {
+        this.getHeroes();
+    };
+    HeroesComponent.prototype.onSelect = function (hero) {
+        this.selectedHero = hero;
+    };
+    HeroesComponent.prototype.gotoDetail = function () {
+        this.router.navigate(['/detail', this.selectedHero.id]);
     };
     HeroesComponent = __decorate([
         core_1.Component({

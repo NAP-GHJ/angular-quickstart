@@ -11,19 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by ghj on 16-10-6.
  */
+require('./rxjs-extensions');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
-var app_component_1 = require('./app.component');
-var hero_detail_component_1 = require('./hero-detail.component');
-var heroes_component_1 = require('./heroes.component');
-var hero_service_1 = require('./hero.service');
-var app_routing_1 = require('./app.routing');
-var dashboard_component_1 = require("./dashboard.component");
-//Import for loading & configuring the in-memory web api
+// Imports for loading & configuring the in-memory web api
 var angular_in_memory_web_api_1 = require('angular-in-memory-web-api');
 var in_memory_data_service_1 = require('./in-memory-data.service');
+var app_component_1 = require('./app.component');
+var dashboard_component_1 = require('./dashboard.component');
+var heroes_component_1 = require('./heroes.component');
+var hero_detail_component_1 = require('./hero-detail.component');
+var hero_service_1 = require('./hero.service');
+var hero_search_component_1 = require('./hero-search.component');
+var app_routing_1 = require('./app.routing');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -38,11 +40,14 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
+                dashboard_component_1.DashboardComponent,
                 hero_detail_component_1.HeroDetailComponent,
                 heroes_component_1.HeroesComponent,
-                dashboard_component_1.DashboardComponent
+                hero_search_component_1.HeroSearchComponent
             ],
-            providers: [hero_service_1.HeroService],
+            providers: [
+                hero_service_1.HeroService,
+            ],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
